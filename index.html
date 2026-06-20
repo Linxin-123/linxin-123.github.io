@@ -1,151 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Linxin Portfolio</title>
-<style>
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Times New Roman', serif;
-}
-/* 顶部导航栏 */
-header{
-    background-color: #333338;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 50px;
-}
-.header-left{
-    display: flex;
-    align-items: center;
-    gap:16px;
-}
-.logo-circle{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 3px solid #d4a4a4;
-    display: grid;
-    place-items: center;
-    color:#d4a4a4;
-    font-size:22px;
-    font-weight:bold;
-}
-.site-name{
-    font-size:42px;
-    color:#d4a4a4;
-}
-nav a{
-    color:#cccccc;
-    text-decoration: none;
-    font-size:18px;
-    margin:0 15px;
-    padding:8px 4px;
-}
-nav a.active{
-    color:#ffffff;
-    border-bottom: 2px solid #d4a4a4;
-}
-/* 首页横幅 */
-.banner{
-    width:100%;
-    min-height:85vh;
-    background: linear-gradient(rgba(0,0,0,0.58),rgba(0,0,0,0.58)), url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
-    background-size: cover;
-    background-position: center;
-    padding: 0 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color:#fff;
-}
-.banner h1{
-    font-size:48px;
-    max-width:950px;
-    font-weight:normal;
-    margin-bottom:20px;
-}
-.banner p{
-    max-width:820px;
-    font-size:17px;
-    line-height:1.6;
-    opacity:0.9;
-    margin-bottom:35px;
-}
-.btn-project{
-    width: fit-content;
-    padding:16px 32px;
-    background-color:#b87373;
-    color:#fff;
-    text-decoration:none;
-    font-size:17px;
-    border-radius:2px;
-}
-/* 内容板块通用样式 */
-.section{
-    padding:75px 50px;
-}
-.section h2{
-    font-size:34px;
-    margin-bottom:25px;
-    color:#222;
-    border-left:5px solid #b87373;
-    padding-left:15px;
-}
-.section p, .section li{
-    font-size:17px;
-    line-height:1.75;
-    color:#333;
-}
-ul{
-    padding-left:22px;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linxin Portfolio</title>
+
+  <!-- ===== Fonts (loaded from Google Fonts; works on GitHub Pages) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       COLOR & FONT SETTINGS — change these to re-theme the whole site
+       ============================================================ */
+    :root{
+      --ink:    #2c2c37;   /* dark header / footer background */
+      --clay:   #c07a72;   /* accent colour: headings, buttons, brand name */
+      --clay-dark: #a96a62;/* button colour when you hover over it */
+      --bg:     #f6f6f6;   /* page background */
+      --card:   #ffffff;   /* card background */
+      --text:   #4a4a4a;   /* normal body text */
+      --muted:  #6b6b6b;   /* lighter grey text */
+      --line:   #e3e3e3;   /* thin divider lines */
+    }
+
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    body{
+      font-family:'Lora', Georgia, 'Times New Roman', serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.65;
+    }
+    img{ display:block; max-width:100%; }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1200px; margin:0 auto; padding:0 24px; }
+
+    /* ============================================================
+       HEADER / NAVIGATION
+       ============================================================ */
+    header{
+      background:var(--ink);
+      position:sticky; top:0; z-index:50;
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 24px; max-width:1200px; margin:0 auto;
+    }
+    .brand{ display:flex; align-items:center; gap:14px; }
+    /* The round logo. Replace the <img> src with your own logo file, OR
+       delete the <img> line and keep just the text brand. */
+    .brand img{ width:54px; height:54px; border-radius:50%; object-fit:cover; }
+    .brand .name{ color:var(--clay); font-size:28px; letter-spacing:.5px; }
+
+    .menu{ display:flex; gap:34px; list-style:none; }
+    .menu a{
+      color:#d7d7db; font-size:14px; letter-spacing:1.5px; text-transform:uppercase;
+      padding-bottom:6px; border-bottom:2px solid transparent; transition:.2s;
+    }
+    .menu a:hover{ color:#fff; }
+    .menu a.active{ color:#fff; border-bottom-color:var(--clay); }
+
+    .burger{ display:none; background:none; border:0; color:#fff; font-size:26px; cursor:pointer; }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero{
+      position:relative; color:#fff;
+      /* Background image: swap the URL for your own picture (e.g. "hero.jpg"
+         placed in the same folder). The dark gradient keeps text readable. */
+      background:
+        linear-gradient(rgba(40,40,52,.55), rgba(40,40,52,.55)),
+        url("https://picsum.photos/seed/blueprint/1600/900") center/cover no-repeat;
+    }
+    .hero-inner{ max-width:1200px; margin:0 auto; padding:120px 24px 130px; }
+    .hero h1{
+      font-size:52px; font-weight:500; line-height:1.15; max-width:780px; margin-bottom:26px;
+    }
+    .hero p{ font-size:18px; max-width:680px; margin-bottom:34px; }
+
+    /* Buttons */
+    .btn{
+      display:inline-block; background:var(--clay); color:#fff;
+      padding:13px 26px; font-size:15px; border-radius:4px; transition:.2s;
+    }
+    .btn:hover{ background:var(--clay-dark); }
+
+    /* ============================================================
+       SECTION HEADINGS
+       ============================================================ */
+    section{ padding:72px 0; }
+    .section-title{ color:var(--clay); font-size:34px; font-weight:500; margin-bottom:14px; }
+    .section-sub{ color:var(--muted); font-size:18px; max-width:820px; margin-bottom:48px; }
+
+    /* ============================================================
+       EXPERTISE CARDS (2 x 2 grid)
+       ============================================================ */
+    .grid{ display:grid; grid-template-columns:1fr 1fr; gap:46px; }
+    .card img{ width:100%; height:300px; object-fit:cover; border-radius:4px; margin-bottom:22px; }
+    .card h3{ color:var(--clay); font-size:26px; font-weight:500; margin-bottom:14px; }
+    .card p{ color:var(--text); margin-bottom:22px; }
+
+    /* ============================================================
+       TESTIMONIAL
+       ============================================================ */
+    .quote-band{ background:#ececec; }
+    .quote-band blockquote{ font-size:20px; font-style:italic; color:#3f3f3f; max-width:1000px; }
+    .quote-band cite{ display:block; margin-top:14px; font-style:normal; color:var(--muted); }
+
+    /* ============================================================
+       CONTACT
+       ============================================================ */
+    .contact{ display:grid; grid-template-columns:1fr 1fr; align-items:stretch; }
+    .contact-img{
+      min-height:520px;
+      background:url("https://picsum.photos/seed/geometric/900/1000") center/cover no-repeat;
+    }
+    .contact-info{ padding:64px 56px; }
+    .contact-info h2{ color:var(--clay); font-size:38px; font-weight:500; margin-bottom:26px; }
+    .contact-info h4{ color:var(--clay); font-size:22px; font-weight:500; margin:30px 0 8px; }
+    .contact-info p, .contact-info a.link{ color:var(--text); }
+    .contact-info a.link{ text-decoration:underline; }
+    .divider{ height:1px; background:var(--line); margin:22px 0 0; }
+
+    .socials{ display:flex; gap:14px; margin-top:18px; }
+    .socials a{
+      width:42px; height:42px; border-radius:50%; background:var(--clay);
+      display:flex; align-items:center; justify-content:center; transition:.2s;
+    }
+    .socials a:hover{ background:var(--clay-dark); }
+    .socials svg{ width:20px; height:20px; fill:#fff; }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer{ background:var(--ink); color:#c9c9cf; }
+    .footer-inner{
+      max-width:1200px; margin:0 auto; padding:26px 24px;
+      display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:14px;
+    }
+
+    /* ============================================================
+       MOBILE / RESPONSIVE
+       ============================================================ */
+    @media (max-width:860px){
+      .menu{
+        display:none; position:absolute; top:100%; left:0; right:0;
+        background:var(--ink); flex-direction:column; gap:0; padding:8px 0;
+      }
+      .menu.open{ display:flex; }
+      .menu a{ padding:14px 24px; border-bottom:none; }
+      .burger{ display:block; }
+      .nav{ position:relative; }
+      .hero h1{ font-size:36px; }
+      .hero-inner{ padding:80px 24px; }
+      .grid{ grid-template-columns:1fr; gap:40px; }
+      .contact{ grid-template-columns:1fr; }
+      .contact-img{ min-height:280px; }
+      .contact-info{ padding:48px 28px; }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-    <div class="header-left">
-        <div class="logo-circle">LINXIN</div>
-        <div class="site-name">Linxin</div>
-    </div>
-    <nav>
-        <a href="#home" class="active">HOME</a>
-        <a href="#projects">MY PROJECTS</a>
-        <a href="#skills">SKILLS & EXPERTISE</a>
-        <a href="#experience">PROFESSIONAL EXPERIENCE</a>
+
+  <!-- ============================== HEADER ============================== -->
+  <header>
+    <nav class="nav">
+      <div class="brand">
+        <!-- LOGO: replace src with your own image file, e.g. src="logo.png" -->
+        <img src="https://picsum.photos/seed/linxlogo/110/110" alt="Linxin logo">
+        <span class="name">Linxin</span>
+      </div>
+
+      <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">&#9776;</button>
+
+      <!-- NAV LINKS: point href to other pages later, e.g. href="projects.html" -->
+      <ul class="menu" id="menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#projects">My Projects</a></li>
+        <li><a href="#skills">Skills &amp; Expertise</a></li>
+        <li><a href="#experience">Professional Experience</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-<section id="home" class="banner">
-    <h1>Showcasing my mathematical journey and professional expertise</h1>
-    <p>Welcome to my professional portfolio. This platform serves as an extended curriculum vitae, offering a comprehensive look into my experience, projects, and skills in the world of mathematics and beyond. Explore my work and discover the depth of my capabilities.</p>
-    <a href="#projects" class="btn-project">View my projects</a>
-</section>
+  <!-- ============================== HERO ============================== -->
+  <section class="hero" style="padding:0;">
+    <div class="hero-inner">
+      <h1>Showcasing my mathematical journey and professional expertise</h1>
+      <p>Welcome to my professional portfolio. This platform serves as an extended curriculum
+         vitae, offering a comprehensive look into my experience, projects, and skills in the
+         world of mathematics and beyond. Explore my work and discover the depth of my capabilities.</p>
+      <a href="#projects" class="btn">View my projects</a>
+    </div>
+  </section>
 
-<section id="projects" class="section">
-    <h2>MY PROJECTS</h2>
-    <p>All my Python, R, SAS and HTML course homework are stored here:</p>
-    <br>
-    <a href="https://github.com/linxin-123/Homework-Assignments" target="_blank" style="color:#b87373;font-size:18px;">Browse all assignments</a>
-</section>
+  <!-- ====================== AREAS OF EXPERTISE ====================== -->
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">Explore my areas of expertise</h2>
+      <p class="section-sub">My work spans various facets of mathematics and its applications.
+         Each section provides a detailed insight into my capabilities and contributions.</p>
 
-<section id="skills" class="section">
-    <h2>SKILLS & EXPERTISE</h2>
-    <ul>
-        <li>Python programming & data analysis</li>
-        <li>R statistical modeling & data visualization</li>
-        <li>SAS statistical programming</li>
-        <li>HTML basic web development</li>
-    </ul>
-</section>
+      <div class="grid">
 
-<section id="experience" class="section">
-    <h2>PROFESSIONAL EXPERIENCE</h2>
-    <p>You can fill your academic background, internship and research experience content here later.</p>
-</section>
+        <!-- CARD 1 -->
+        <div class="card" id="projects">
+          <img src="https://picsum.photos/seed/maths/800/500" alt="Mathematical projects">
+          <h3>Mathematical projects</h3>
+          <p>Delve into a collection of projects where I've applied mathematical principles to
+             solve complex problems, from theoretical explorations to practical implementations.</p>
+          <a href="#" class="btn">See all projects</a>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card" id="experience">
+          <img src="https://picsum.photos/seed/career/800/500" alt="Professional experience">
+          <h3>Professional experience</h3>
+          <p>Review my career trajectory, highlighting key roles, responsibilities, and
+             achievements in professional settings. Understand how my mathematical background
+             has driven success.</p>
+          <a href="#" class="btn">Learn about my career</a>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card" id="skills">
+          <img src="https://picsum.photos/seed/gears/800/500" alt="Skills and expertise">
+          <h3>Skills and expertise</h3>
+          <p>A detailed breakdown of my technical and soft skills, including programming
+             languages, analytical tools, problem-solving methodologies, and communication
+             abilities.</p>
+          <a href="#" class="btn">Discover my skills</a>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card">
+          <img src="https://picsum.photos/seed/research/800/500" alt="Research and publications">
+          <h3>Research and publications</h3>
+          <p>Access a curated selection of my research work and any published articles,
+             showcasing my contributions to academic and industry knowledge.</p>
+          <a href="#" class="btn">View research</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== TESTIMONIAL ========================== -->
+  <section class="quote-band">
+    <div class="wrap">
+      <blockquote>
+        "Linxin's analytical prowess and clear communication are exceptional. They bring a
+        meticulous and thoughtful approach to every project, delivering insights that are both
+        precise and impactful."
+        <cite>— Colleague, Auckland, New Zealand</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- =========================== CONTACT =========================== -->
+  <section style="padding:0;">
+    <div class="contact">
+      <!-- Contact image: swap the URL in the CSS rule ".contact-img" above -->
+      <div class="contact-img"></div>
+
+      <div class="contact-info">
+        <h2>Connect with me</h2>
+        <div class="divider"></div>
+
+        <p style="margin-top:22px;">Auckland, New Zealand</p>
+        <div class="divider"></div>
+
+        <h4>Availability</h4>
+        <p>Flexible hours by arrangement.</p>
+        <div class="divider"></div>
+
+        <h4>Phone</h4>
+        <!-- Replace with your real number and email -->
+        <p>+64 00 000 0000</p>
+        <p><a class="link" href="mailto:you@example.com">you@example.com</a></p>
+        <div class="divider"></div>
+
+        <h4>Follow me on</h4>
+        <div class="socials">
+          <!-- Replace each href="#" with the link to your profile -->
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Linxin</span>
+      <span>Built and hosted on GitHub Pages</span>
+    </div>
+  </footer>
+
 </body>
 </html>
