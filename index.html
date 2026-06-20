@@ -1,27 +1,147 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Linxin Personal Homepage </title>
-    <style>
-        body {
-            font-family: "Microsoft Yahei", sans-serif;
-            background-color: #f5f7fa;
-            padding: 60px 40px;
-            margin: 0;
-        }
-        h1 {
-            font-size: 48px;
-            color: #222;
-        }
-        p {
-            font-size: 24px;
-            color: #444;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linxin | Personal Portfolio</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* 顶部导航栏 */
+header{
+    background-color: #2b2b38;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 60px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 38px;
+    color: #d8a7a7;
+    font-weight: 500;
+}
+nav a{
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 16px;
+    font-size: 17px;
+    padding: 7px 3px;
+}
+nav a.active{
+    border-bottom: 2px solid #d8a7a7;
+}
+
+/* 首页横幅区域（对应你截图大图） */
+.banner{
+    width: 100%;
+    min-height: 86vh;
+    background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1593106578502-27fa837c4125');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 60px;
+    color: white;
+}
+.banner h1{
+    font-size: 46px;
+    max-width: 950px;
+    line-height: 1.25;
+    margin-bottom: 22px;
+    font-weight: normal;
+}
+.banner p{
+    max-width: 780px;
+    font-size: 16px;
+    line-height: 1.65;
+    opacity: 0.92;
+    margin-bottom: 32px;
+}
+.btn-view{
+    width: fit-content;
+    padding: 15px 30px;
+    background-color: #b97575;
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 16px;
+}
+
+/* 通用内容区块样式（用来拆分多部分内容） */
+.section{
+    padding: 75px 60px;
+}
+.section h2{
+    font-size: 33px;
+    color: #222;
+    margin-bottom: 26px;
+    border-left: 5px solid #b97575;
+    padding-left: 14px;
+}
+.section p{
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    max-width: 900px;
+}
+.spacer{
+    margin: 18px 0;
+}
+</style>
 </head>
 <body>
-    <h1>Welcome to Linxin's Website</h1>
-    <p>Website Address：linxin-123.github.io</p>
+
+<!-- 顶部导航 -->
+<header>
+    <div class="logo">LINXIN</div>
+    <nav>
+        <a href="#home" class="active">HOME</a>
+        <a href="#projects">MY PROJECTS</a>
+        <a href="#skills">SKILLS & EXPERTISE</a>
+        <a href="#experience">PROFESSIONAL EXPERIENCE</a>
+    </nav>
+</header>
+
+<!-- 首页横幅 -->
+<section id="home" class="banner">
+    <h1>Showcasing my mathematical journey and professional expertise</h1>
+    <p>Welcome to my professional portfolio. This platform serves as an extended curriculum vitae, offering a comprehensive look into my experience, projects, and skills in the world of mathematics and beyond. Explore my work and discover the depth of my capabilities.</p>
+    <a href="#projects" class="btn-view">View my projects</a>
+</section>
+
+<!-- 板块1：我的项目 & 课程作业（放Python/R/SAS/HTML作业入口） -->
+<section id="projects" class="section">
+    <h2>My Projects & Course Homework</h2>
+    <p>Here you can browse all my academic assignments, including Python, R, SAS statistical codes and HTML web tasks.</p>
+    <div class="spacer"></div>
+    <a href="https://github.com/linxin-123/Homework-Assignments" target="_blank" style="font-size:17px;color:#b97575;">Click to view all homework repository</a>
+</section>
+
+<!-- 板块2：技能专长 -->
+<section id="skills" class="section">
+    <h2>Skills & Expertise</h2>
+    <ul style="line-height:2.1; font-size:16px; padding-left:20px;">
+        <li>Python Data Analysis & Programming</li>
+        <li>R Language Statistical Modeling</li>
+        <li>SAS Statistical Programming</li>
+        <li>HTML & Basic Website Development</li>
+    </ul>
+</section>
+
+<!-- 板块3：个人经历 -->
+<section id="experience" class="section">
+    <h2>Professional Experience</h2>
+    <p>You can fill your academic background, internship experience and research content here later by editing this HTML file.</p>
+</section>
+
 </body>
 </html>
