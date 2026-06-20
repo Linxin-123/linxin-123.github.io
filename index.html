@@ -3,106 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Linxin | Personal Portfolio</title>
+<title>Linxin Portfolio</title>
 <style>
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Times New Roman', serif;
 }
-
 /* 顶部导航栏 */
 header{
-    background-color: #2b2b38;
+    background-color: #333338;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    padding: 16px 60px;
+    padding: 12px 50px;
 }
-.logo{
+.header-left{
     display: flex;
     align-items: center;
-    gap: 14px;
-    font-size: 38px;
-    color: #d8a7a7;
-    font-weight: 500;
+    gap:16px;
+}
+.logo-circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #d4a4a4;
+    display: grid;
+    place-items: center;
+    color:#d4a4a4;
+    font-size:22px;
+    font-weight:bold;
+}
+.site-name{
+    font-size:42px;
+    color:#d4a4a4;
 }
 nav a{
-    color: #ffffff;
+    color:#cccccc;
     text-decoration: none;
-    margin: 0 16px;
-    font-size: 17px;
-    padding: 7px 3px;
+    font-size:18px;
+    margin:0 15px;
+    padding:8px 4px;
 }
 nav a.active{
-    border-bottom: 2px solid #d8a7a7;
+    color:#ffffff;
+    border-bottom: 2px solid #d4a4a4;
 }
-
-/* 首页横幅区域（对应你截图大图） */
+/* 首页横幅 */
 .banner{
-    width: 100%;
-    min-height: 86vh;
-    background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1593106578502-27fa837c4125');
+    width:100%;
+    min-height:85vh;
+    background: linear-gradient(rgba(0,0,0,0.58),rgba(0,0,0,0.58)), url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
     background-size: cover;
     background-position: center;
+    padding: 0 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 60px;
-    color: white;
+    color:#fff;
 }
 .banner h1{
-    font-size: 46px;
-    max-width: 950px;
-    line-height: 1.25;
-    margin-bottom: 22px;
-    font-weight: normal;
+    font-size:48px;
+    max-width:950px;
+    font-weight:normal;
+    margin-bottom:20px;
 }
 .banner p{
-    max-width: 780px;
-    font-size: 16px;
-    line-height: 1.65;
-    opacity: 0.92;
-    margin-bottom: 32px;
+    max-width:820px;
+    font-size:17px;
+    line-height:1.6;
+    opacity:0.9;
+    margin-bottom:35px;
 }
-.btn-view{
+.btn-project{
     width: fit-content;
-    padding: 15px 30px;
-    background-color: #b97575;
-    color: white;
-    text-decoration: none;
-    border-radius: 2px;
-    font-size: 16px;
+    padding:16px 32px;
+    background-color:#b87373;
+    color:#fff;
+    text-decoration:none;
+    font-size:17px;
+    border-radius:2px;
 }
-
-/* 通用内容区块样式（用来拆分多部分内容） */
+/* 内容板块通用样式 */
 .section{
-    padding: 75px 60px;
+    padding:75px 50px;
 }
 .section h2{
-    font-size: 33px;
-    color: #222;
-    margin-bottom: 26px;
-    border-left: 5px solid #b97575;
-    padding-left: 14px;
+    font-size:34px;
+    margin-bottom:25px;
+    color:#222;
+    border-left:5px solid #b87373;
+    padding-left:15px;
 }
-.section p{
-    font-size: 16px;
-    line-height: 1.7;
-    color: #333;
-    max-width: 900px;
+.section p, .section li{
+    font-size:17px;
+    line-height:1.75;
+    color:#333;
 }
-.spacer{
-    margin: 18px 0;
+ul{
+    padding-left:22px;
 }
 </style>
 </head>
 <body>
-
-<!-- 顶部导航 -->
 <header>
-    <div class="logo">LINXIN</div>
+    <div class="header-left">
+        <div class="logo-circle">LINXIN</div>
+        <div class="site-name">Linxin</div>
+    </div>
     <nav>
         <a href="#home" class="active">HOME</a>
         <a href="#projects">MY PROJECTS</a>
@@ -111,37 +120,32 @@ nav a.active{
     </nav>
 </header>
 
-<!-- 首页横幅 -->
 <section id="home" class="banner">
     <h1>Showcasing my mathematical journey and professional expertise</h1>
     <p>Welcome to my professional portfolio. This platform serves as an extended curriculum vitae, offering a comprehensive look into my experience, projects, and skills in the world of mathematics and beyond. Explore my work and discover the depth of my capabilities.</p>
-    <a href="#projects" class="btn-view">View my projects</a>
+    <a href="#projects" class="btn-project">View my projects</a>
 </section>
 
-<!-- 板块1：我的项目 & 课程作业（放Python/R/SAS/HTML作业入口） -->
 <section id="projects" class="section">
-    <h2>My Projects & Course Homework</h2>
-    <p>Here you can browse all my academic assignments, including Python, R, SAS statistical codes and HTML web tasks.</p>
-    <div class="spacer"></div>
-    <a href="https://github.com/linxin-123/Homework-Assignments" target="_blank" style="font-size:17px;color:#b97575;">Click to view all homework repository</a>
+    <h2>MY PROJECTS</h2>
+    <p>All my Python, R, SAS and HTML course homework are stored here:</p>
+    <br>
+    <a href="https://github.com/linxin-123/Homework-Assignments" target="_blank" style="color:#b87373;font-size:18px;">Browse all assignments</a>
 </section>
 
-<!-- 板块2：技能专长 -->
 <section id="skills" class="section">
-    <h2>Skills & Expertise</h2>
-    <ul style="line-height:2.1; font-size:16px; padding-left:20px;">
-        <li>Python Data Analysis & Programming</li>
-        <li>R Language Statistical Modeling</li>
-        <li>SAS Statistical Programming</li>
-        <li>HTML & Basic Website Development</li>
+    <h2>SKILLS & EXPERTISE</h2>
+    <ul>
+        <li>Python programming & data analysis</li>
+        <li>R statistical modeling & data visualization</li>
+        <li>SAS statistical programming</li>
+        <li>HTML basic web development</li>
     </ul>
 </section>
 
-<!-- 板块3：个人经历 -->
 <section id="experience" class="section">
-    <h2>Professional Experience</h2>
-    <p>You can fill your academic background, internship experience and research content here later by editing this HTML file.</p>
+    <h2>PROFESSIONAL EXPERIENCE</h2>
+    <p>You can fill your academic background, internship and research experience content here later.</p>
 </section>
-
 </body>
 </html>
