@@ -37,22 +37,31 @@
     .kick{ color:var(--clay-dark); font-size:13px; letter-spacing:2px; text-transform:uppercase; margin:30px 0 18px; }
 
     /* featured highlights */
-    .highlights{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:30px; }
+    .highlights{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:36px; }
     .hl{ background:var(--card); border-radius:12px; padding:28px 26px; box-shadow:0 5px 20px rgba(0,0,0,.07); border-top:3px solid var(--clay); }
     .hl .ico{ width:42px; height:42px; margin-bottom:14px; }
     .hl .stat{ font-size:34px; color:var(--clay); font-weight:600; line-height:1; margin-bottom:8px; }
     .hl .lab{ color:var(--ink); font-size:16px; font-weight:600; margin-bottom:5px; }
     .hl .sub{ color:var(--muted); font-size:13.5px; }
 
-    /* categories */
-    .cats{ display:grid; grid-template-columns:1fr 1fr; gap:40px 54px; }
-    .cat h3{ color:var(--clay); font-size:22px; font-weight:500; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+    /* category cards (colour-coded) */
+    .cats{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .cat{ background:var(--card); border-radius:14px; padding:26px 30px 20px; box-shadow:0 5px 20px rgba(0,0,0,.07); border-top:4px solid var(--accent); }
+    .cat-head{ display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+    .cat-ico{ width:46px; height:46px; border-radius:12px; background:var(--accent-bg); color:var(--accent-dark); display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+    .cat-ico svg{ width:25px; height:25px; }
+    .cat h3{ color:var(--accent-dark); font-size:20px; font-weight:600; margin:0; }
     .cat ul{ list-style:none; }
     .cat li{ position:relative; padding-left:20px; margin-bottom:12px; font-size:14.5px; color:var(--text); line-height:1.55; }
-    .cat li::before{ content:""; position:absolute; left:0; top:9px; width:7px; height:7px; border-radius:50%; background:var(--clay); }
-    .cat li .yr{ color:var(--clay-dark); font-weight:600; }
+    .cat li::before{ content:""; position:absolute; left:0; top:9px; width:7px; height:7px; border-radius:50%; background:var(--accent); }
+    .cat li .yr{ color:var(--accent-dark); font-weight:600; }
 
-    footer{ background:var(--ink); color:#c9c9cf; margin-top:40px; }
+    .cat-cg{ --accent:#c07a72; --accent-bg:#f6e2dd; --accent-dark:#a96a62; }
+    .cat-sx{ --accent:#9a6f78; --accent-bg:#ebe0e3; --accent-dark:#785563; }
+    .cat-lz{ --accent:#6fa8b2; --accent-bg:#e2eff1; --accent-dark:#4d8893; }
+    .cat-lc{ --accent:#7fae86; --accent-bg:#e6f0e7; --accent-dark:#588460; }
+
+    footer{ background:var(--ink); color:#c9c9cf; margin-top:46px; }
     .footer-inner{ max-width:1200px; margin:0 auto; padding:26px 24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:14px; }
 
     @media (max-width:860px){
@@ -63,7 +72,7 @@
       .nav{ position:relative; }
       .page-head h1{ font-size:32px; }
       .highlights{ grid-template-columns:1fr; }
-      .cats{ grid-template-columns:1fr; gap:34px; }
+      .cats{ grid-template-columns:1fr; gap:24px; }
     }
   </style>
 </head>
@@ -114,15 +123,15 @@
           <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#c07a72" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
           <div class="stat">450,000+</div>
           <div class="lab">Views on a single video</div>
-          <div class="sub">Independent content &middot; NodeClub</div>
+          <div class="sub">Independent content &middot; Xiaohongshu (RED)</div>
         </div>
       </div>
 
       <div class="kick">All honours &amp; awards</div>
       <div class="cats">
 
-        <div class="cat">
-          <h3>Country Garden &mdash; Group</h3>
+        <div class="cat cat-cg">
+          <div class="cat-head"><span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3"/></svg></span><h3>Country Garden &mdash; Group</h3></div>
           <ul>
             <li>Outstanding Employee of Country Garden Group &mdash; top 0.1% (Major Group Award) <span class="yr">2018</span></li>
             <li>Long Service Award (Major Group Award) <span class="yr">2021</span></li>
@@ -132,8 +141,8 @@
           </ul>
         </div>
 
-        <div class="cat">
-          <h3>Country Garden &mdash; Shaanxi Region</h3>
+        <div class="cat cat-sx">
+          <div class="cat-head"><span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg></span><h3>Country Garden &mdash; Shaanxi Region</h3></div>
           <ul>
             <li>Outstanding Employee, First Half of the Year <span class="yr">2022</span></li>
             <li>Third Place, Grand Strategy Co-ordination Competition <span class="yr">2021</span></li>
@@ -142,8 +151,8 @@
           </ul>
         </div>
 
-        <div class="cat">
-          <h3>Lanzhou University &mdash; Academic</h3>
+        <div class="cat cat-lz">
+          <div class="cat-head"><span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 2 9l10 4 10-4-10-4z"/><path d="M6 11v4c0 1.2 2.7 2.5 6 2.5s6-1.3 6-2.5v-4"/><path d="M22 9v4.5"/></svg></span><h3>Lanzhou University &mdash; Academic</h3></div>
           <ul>
             <li>Meritorious Winner (1st Prize), American Mathematical Modeling Contest <span class="yr">2014</span></li>
             <li>Successful Participant (3rd Prize), American Mathematical Modeling Contest <span class="yr">2015</span></li>
@@ -155,8 +164,8 @@
           </ul>
         </div>
 
-        <div class="cat">
-          <h3>Leadership &amp; Community</h3>
+        <div class="cat cat-lc">
+          <div class="cat-head"><span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17.5" cy="9" r="2.3"/><path d="M16 14.4a4.6 4.6 0 0 1 5 4.6"/></svg></span><h3>Leadership &amp; Community</h3></div>
           <ul>
             <li>Member, Mathematical Modelling Association <span class="yr">2014&ndash;2015</span></li>
             <li>Team Leader, Chinese Revolutionary History Inquiry Activity <span class="yr">2014</span></li>
