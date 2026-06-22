@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional Experience — Linxin</title>
+  <title>Professional Experience &mdash; Linxin</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,14 +11,8 @@
 
   <style>
     :root{
-      --ink:    #2c2c37;
-      --clay:   #c07a72;
-      --clay-dark: #a96a62;
-      --bg:     #f6f6f6;
-      --card:   #ffffff;
-      --text:   #4a4a4a;
-      --muted:  #6b6b6b;
-      --line:   #e3e3e3;
+      --ink:#2c2c37; --clay:#c07a72; --clay-dark:#a96a62; --bg:#f6f6f6;
+      --card:#ffffff; --text:#4a4a4a; --muted:#6b6b6b; --line:#e3e3e3;
     }
     *{ margin:0; padding:0; box-sizing:border-box; }
     body{ font-family:'Lora', Georgia, 'Times New Roman', serif; color:var(--text); background:var(--bg); line-height:1.65; }
@@ -41,14 +35,25 @@
     .page-head h1{ color:var(--clay); font-size:42px; font-weight:500; margin-bottom:12px; }
     .page-head p{ color:var(--muted); font-size:18px; max-width:820px; }
 
-    section{ padding:40px 0 72px; }
-    .grid{ display:grid; grid-template-columns:1fr 1fr; gap:46px; }
-    .card{ background:var(--card); border-radius:6px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.06); }
-    .card img{ width:100%; height:300px; object-fit:cover; }
-    .card-body{ padding:26px 28px 30px; }
-    .card h3{ color:var(--clay); font-size:26px; font-weight:500; margin-bottom:6px; }
-    .card .role-meta{ color:var(--muted); font-size:15px; margin-bottom:14px; }
-    .card p{ color:var(--text); margin-bottom:0; }
+    section{ padding:30px 0 80px; }
+
+    /* ---- timeline ---- */
+    .timeline{ position:relative; max-width:1040px; margin:20px auto 0; }
+    .timeline::before{ content:""; position:absolute; left:50%; transform:translateX(-50%); top:6px; bottom:6px; width:3px; background:linear-gradient(var(--clay), var(--clay-dark)); border-radius:3px; opacity:.55; }
+    .tl-item{ position:relative; width:50%; padding:22px 50px; }
+    .tl-item.left{ left:0; }
+    .tl-item.right{ left:50%; }
+    .tl-node{ position:absolute; top:46px; width:18px; height:18px; border-radius:50%; background:var(--clay); border:4px solid var(--bg); box-shadow:0 0 0 2px var(--clay); }
+    .tl-item.left .tl-node{ right:-9px; }
+    .tl-item.right .tl-node{ left:-9px; }
+    .tl-card{ background:var(--card); border-radius:10px; overflow:hidden; box-shadow:0 5px 20px rgba(0,0,0,.07); }
+    .tl-img{ width:100%; height:210px; object-fit:cover; background:#f0e7e4; }
+    .tl-body{ padding:22px 26px 26px; }
+    .tl-date{ color:var(--clay-dark); font-size:13px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px; }
+    .tl-body h2{ color:var(--clay); font-size:24px; font-weight:500; margin-bottom:4px; }
+    .tl-meta{ color:var(--muted); font-size:14px; margin-bottom:12px; }
+    .badge{ display:inline-block; background:var(--clay); color:#fff; font-size:11px; letter-spacing:1px; text-transform:uppercase; padding:3px 11px; border-radius:20px; margin-bottom:12px; }
+    .tl-body p{ color:var(--text); font-size:15px; margin:0; }
 
     footer{ background:var(--ink); color:#c9c9cf; }
     .footer-inner{ max-width:1200px; margin:0 auto; padding:26px 24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:14px; }
@@ -60,7 +65,11 @@
       .burger{ display:block; }
       .nav{ position:relative; }
       .page-head h1{ font-size:32px; }
-      .grid{ grid-template-columns:1fr; gap:40px; }
+    }
+    @media (max-width:760px){
+      .timeline::before{ left:20px; }
+      .tl-item, .tl-item.left, .tl-item.right{ width:100%; left:0; padding:16px 0 16px 50px; }
+      .tl-item.left .tl-node, .tl-item.right .tl-node{ left:11px; right:auto; }
     }
   </style>
 </head>
@@ -71,67 +80,104 @@
   <header>
     <nav class="nav">
       <div class="brand">
-        <img src="https://picsum.photos/seed/linxlogo/110/110" alt="Linxin logo">
+        <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%20120%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22glow%22%20x%3D%22-40%25%22%20y%3D%22-40%25%22%20width%3D%22180%25%22%20height%3D%22180%25%22%3E%3CfeGaussianBlur%20stdDeviation%3D%222.2%22%20result%3D%22b%22/%3E%3CfeMerge%3E%3CfeMergeNode%20in%3D%22b%22/%3E%3CfeMergeNode%20in%3D%22SourceGraphic%22/%3E%3C/feMerge%3E%3C/filter%3E%3CradialGradient%20id%3D%22bggrad%22%20cx%3D%220.5%22%20cy%3D%220.42%22%20r%3D%220.95%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%234a3942%22/%3E%3Cstop%20offset%3D%220.55%22%20stop-color%3D%22%2323232f%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161f%22/%3E%3C/radialGradient%3E%3CradialGradient%20id%3D%22skin%22%20cx%3D%220.4%22%20cy%3D%220.35%22%20r%3D%220.8%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23e8b4ab%22/%3E%3Cstop%20offset%3D%220.5%22%20stop-color%3D%22%23c07a72%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23a96a62%22/%3E%3C/radialGradient%3E%3ClinearGradient%20id%3D%22leafg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%237fae86%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%235f8a68%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22120%22%20height%3D%22120%22%20fill%3D%22url%28%23bggrad%29%22/%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2264%22%20r%3D%2215.3%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.07%22%20stroke-width%3D%221%22/%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2264%22%20r%3D%2230.7%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.07%22%20stroke-width%3D%221%22/%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2264%22%20r%3D%2246.0%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.07%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2260%22%20y1%3D%2264%22%20x2%3D%22106.0%22%20y2%3D%2264.0%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.07%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2260%22%20y1%3D%2264%22%20x2%3D%2292.5%22%20y2%3D%2296.5%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.07%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2260%22%20y1%3D%2264%22%20x2%3D%2260.0%22%20y2%3D%22110.0%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.07%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2260%22%20y1%3D%2264%22%20x2%3D%2227.5%22%20y2%3D%2296.5%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.07%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2260%22%20y1%3D%2264%22%20x2%3D%2214.0%22%20y2%3D%2264.0%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.07%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2260%22%20y1%3D%2264%22%20x2%3D%2227.5%22%20y2%3D%2231.5%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.07%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2260%22%20y1%3D%2264%22%20x2%3D%2260.0%22%20y2%3D%2218.0%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.07%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2260%22%20y1%3D%2264%22%20x2%3D%2292.5%22%20y2%3D%2231.5%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.07%22%20stroke-width%3D%221%22/%3E%3Cpath%20d%3D%22M%2093.00%2064.00%20L%2093.94%2065.33%20L%2094.65%2066.73%20L%2094.98%2068.14%20L%2094.85%2069.52%20L%2094.25%2070.81%20L%2093.26%2071.99%20L%2092.02%2073.03%20L%2090.71%2073.98%20L%2089.49%2074.88%20L%2088.52%2075.81%20L%2087.87%2076.85%20L%2087.57%2078.05%20L%2087.54%2079.43%20L%2087.68%2080.96%20L%2087.81%2082.58%20L%2087.80%2084.19%20L%2087.50%2085.68%20L%2086.84%2086.93%20L%2085.82%2087.87%20L%2084.49%2088.49%20L%2082.94%2088.82%20L%2081.31%2088.96%20L%2079.73%2089.03%20L%2078.30%2089.19%20L%2077.08%2089.55%20L%2076.07%2090.22%20L%2075.24%2091.21%20L%2074.51%2092.47%20L%2073.78%2093.89%20L%2072.97%2095.30%20L%2072.01%2096.55%20L%2070.88%2097.47%20L%2069.58%2097.97%20L%2068.16%2098.00%20L%2066.69%2097.62%20L%2065.22%2096.95%20L%2063.81%2096.15%20L%2062.47%2095.40%20L%2061.21%2094.88%20L%2060.00%2094.69%20L%2058.79%2094.88%20L%2057.53%2095.40%20L%2056.19%2096.15%20L%2054.78%2096.95%20L%2053.31%2097.62%20L%2051.84%2098.00%20L%2050.42%2097.97%20L%2049.12%2097.47%20L%2047.99%2096.55%20L%2047.03%2095.30%20L%2046.22%2093.89%20L%2045.49%2092.47%20L%2044.76%2091.21%20L%2043.93%2090.22%20L%2042.92%2089.55%20L%2041.70%2089.19%20L%2040.27%2089.03%20L%2038.69%2088.96%20L%2037.06%2088.82%20L%2035.51%2088.49%20L%2034.18%2087.87%20L%2033.16%2086.93%20L%2032.50%2085.68%20L%2032.20%2084.19%20L%2032.19%2082.58%20L%2032.32%2080.96%20L%2032.46%2079.43%20L%2032.43%2078.05%20L%2032.13%2076.85%20L%2031.48%2075.81%20L%2030.51%2074.88%20L%2029.29%2073.98%20L%2027.98%2073.03%20L%2026.74%2071.99%20L%2025.75%2070.81%20L%2025.15%2069.52%20L%2025.02%2068.14%20L%2025.35%2066.73%20L%2026.06%2065.33%20L%2027.00%2064.00%20L%2027.99%2062.74%20L%2028.85%2061.55%20L%2029.44%2060.38%20L%2029.66%2059.19%20L%2029.52%2057.94%20L%2029.09%2056.58%20L%2028.50%2055.12%20L%2027.94%2053.58%20L%2027.57%2052.04%20L%2027.54%2050.55%20L%2027.94%2049.22%20L%2028.76%2048.08%20L%2029.96%2047.18%20L%2031.40%2046.48%20L%2032.94%2045.92%20L%2034.40%2045.40%20L%2035.67%2044.82%20L%2036.66%2044.06%20L%2037.36%2043.07%20L%2037.82%2041.82%20L%2038.14%2040.35%20L%2038.45%2038.77%20L%2038.87%2037.20%20L%2039.50%2035.79%20L%2040.41%2034.68%20L%2041.58%2033.95%20L%2042.99%2033.62%20L%2044.54%2033.66%20L%2046.15%2033.95%20L%2047.71%2034.33%20L%2049.17%2034.63%20L%2050.48%2034.70%20L%2051.67%2034.45%20L%2052.76%2033.83%20L%2053.81%2032.89%20L%2054.89%2031.76%20L%2056.05%2030.61%20L%2057.29%2029.61%20L%2058.62%2028.93%20L%2060.00%2028.69%20L%2061.38%2028.93%20L%2062.71%2029.61%20L%2063.95%2030.61%20L%2065.11%2031.76%20L%2066.19%2032.89%20L%2067.24%2033.83%20L%2068.33%2034.45%20L%2069.52%2034.70%20L%2070.83%2034.63%20L%2072.29%2034.33%20L%2073.85%2033.95%20L%2075.46%2033.66%20L%2077.01%2033.62%20L%2078.42%2033.95%20L%2079.59%2034.68%20L%2080.50%2035.79%20L%2081.13%2037.20%20L%2081.55%2038.77%20L%2081.86%2040.35%20L%2082.18%2041.82%20L%2082.64%2043.07%20L%2083.34%2044.06%20L%2084.33%2044.82%20L%2085.60%2045.40%20L%2087.06%2045.92%20L%2088.60%2046.48%20L%2090.04%2047.18%20L%2091.24%2048.08%20L%2092.06%2049.22%20L%2092.46%2050.55%20L%2092.43%2052.04%20L%2092.06%2053.58%20L%2091.50%2055.12%20L%2090.91%2056.58%20L%2090.48%2057.94%20L%2090.34%2059.19%20L%2090.56%2060.38%20L%2091.15%2061.55%20L%2092.01%2062.74%20L%2093.00%2064.00%20Z%22%20fill%3D%22url%28%23skin%29%22%20stroke%3D%22%23e8b4ab%22%20stroke-width%3D%221.6%22%20filter%3D%22url%28%23glow%29%22/%3E%3Cline%20x1%3D%2272.7%22%20y1%3D%2264.0%22%20x2%3D%2278.2%22%20y2%3D%2264.0%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2270.3%22%20y1%3D%2271.5%22%20x2%3D%2274.7%22%20y2%3D%2274.7%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2263.9%22%20y1%3D%2276.1%22%20x2%3D%2265.6%22%20y2%3D%2281.3%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2256.1%22%20y1%3D%2276.1%22%20x2%3D%2254.4%22%20y2%3D%2281.3%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2249.7%22%20y1%3D%2271.5%22%20x2%3D%2245.3%22%20y2%3D%2274.7%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2247.3%22%20y1%3D%2264.0%22%20x2%3D%2241.8%22%20y2%3D%2264.0%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2249.7%22%20y1%3D%2256.5%22%20x2%3D%2245.3%22%20y2%3D%2253.3%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2256.1%22%20y1%3D%2251.9%22%20x2%3D%2254.4%22%20y2%3D%2246.7%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2263.9%22%20y1%3D%2251.9%22%20x2%3D%2265.6%22%20y2%3D%2246.7%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2270.3%22%20y1%3D%2256.5%22%20x2%3D%2274.7%22%20y2%3D%2253.3%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2277.7%22%20y1%3D%2269.5%22%20x2%3D%2285.2%22%20y2%3D%2271.8%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2271.1%22%20y1%3D%2278.8%22%20x2%3D%2275.8%22%20y2%3D%2285.1%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2260.3%22%20y1%3D%2282.5%22%20x2%3D%2260.4%22%20y2%3D%2290.4%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2249.4%22%20y1%3D%2279.1%22%20x2%3D%2244.8%22%20y2%3D%2285.6%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2242.5%22%20y1%3D%2270.0%22%20x2%3D%2235.0%22%20y2%3D%2272.5%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2242.3%22%20y1%3D%2258.5%22%20x2%3D%2234.8%22%20y2%3D%2256.2%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2248.9%22%20y1%3D%2249.2%22%20x2%3D%2244.2%22%20y2%3D%2242.9%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2259.7%22%20y1%3D%2245.5%22%20x2%3D%2259.6%22%20y2%3D%2237.6%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2270.6%22%20y1%3D%2248.9%22%20x2%3D%2275.2%22%20y2%3D%2242.4%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Cline%20x1%3D%2277.5%22%20y1%3D%2258.0%22%20x2%3D%2285.0%22%20y2%3D%2255.5%22%20stroke%3D%22%23a96a62%22%20stroke-opacity%3D%220.35%22%20stroke-width%3D%221%22/%3E%3Ccircle%20cx%3D%2251%22%20cy%3D%2254%22%20r%3D%225%22%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.22%22/%3E%3Cpath%20d%3D%22M%2062.0%2032.0%20Q%2078.0%2026.2%2075.0%209.5%20Q%2059.0%2015.2%2062.0%2032.0%20Z%22%20fill%3D%22url%28%23leafg%29%22%20stroke%3D%22%235f8a68%22%20stroke-width%3D%221%22%20filter%3D%22url%28%23glow%29%22/%3E%3Cline%20x1%3D%2262.0%22%20y1%3D%2232.0%22%20x2%3D%2275.0%22%20y2%3D%229.5%22%20stroke%3D%22%235f8a68%22%20stroke-width%3D%221.4%22%20stroke-opacity%3D%220.8%22/%3E%3Cline%20x1%3D%2262%22%20y1%3D%2232%22%20x2%3D%2262%22%20y2%3D%2242%22%20stroke%3D%22%235f8a68%22%20stroke-width%3D%222.4%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E" alt="Linxin logo">
         <span class="name">Linxin</span>
       </div>
-
       <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">&#9776;</button>
-
       <ul class="menu" id="menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="projects.html">My Projects</a></li>
-        <li><a href="skills.html">Skills &amp; Expertise</a></li>
         <li><a href="experience.html" class="active">Professional Experience</a></li>
         <li><a href="research.html">Research &amp; Publications</a></li>
+        <li><a href="hobby.html">Hobby</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- ============================ PAGE TITLE ============================ -->
   <div class="wrap page-head">
-    <!-- ▼ TYPE YOUR PAGE TITLE AND INTRO HERE ▼ -->
-    <h1>Professional Experience</h1>
-    <p>My career so far — the key roles I have held, what I was responsible for,
-       and what I achieved.</p>
+    <h1>My Journey</h1>
+    <p>From a strong mathematics foundation to industry, entrepreneurship, and graduate study &mdash;
+       the path that shaped how I work with data today.</p>
   </div>
 
-  <!-- ============================ EXPERIENCE ============================ -->
+  <!-- ============================ TIMELINE ============================ -->
   <section>
     <div class="wrap">
-      <div class="grid">
+      <div class="timeline">
 
-        <!-- ===================== ROLE 1 ===================== -->
-        <div class="card">
-
-          <!-- ▼ ADD A PICTURE (optional): change src to your own file, or delete this <img> line ▼ -->
-          <img src="https://picsum.photos/seed/exp1/800/500" alt="Role 1">
-
-          <div class="card-body">
-            <!-- ▼ TYPE YOUR JOB TITLE HERE ▼ -->
-            <h3>Job title</h3>
-            <!-- ▼ TYPE COMPANY AND DATES HERE ▼ -->
-            <p class="role-meta">Company name · 2023 – Present</p>
-            <!-- ▼ TYPE WHAT YOU DID HERE ▼ -->
-            <p>Describe your responsibilities and achievements in this role here.</p>
+        <!-- ===== 1) Lanzhou University ===== -->
+        <div class="tl-item left">
+          <div class="tl-node"></div>
+          <div class="tl-card">
+            <!-- PHOTO: replace src with images/lanzhou.jpg once you upload your photo -->
+            <img class="tl-img" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20440%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220.5%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fbf3f0%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23efe0db%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22800%22%20height%3D%22440%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%22330%22%20y%3D%22120%22%20width%3D%22140%22%20height%3D%22104%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23c07a72%22%20stroke-opacity%3D%220.55%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22362%22%20cy%3D%22150%22%20r%3D%229%22%20fill%3D%22%23c07a72%22%20fill-opacity%3D%220.55%22/%3E%3Cpath%20d%3D%22M%20340%20218%20L%20378%20176%20L%20402%20200%20L%20432%20162%20L%20460%20218%20Z%22%20fill%3D%22%23c07a72%22%20fill-opacity%3D%220.18%22%20stroke%3D%22%23c07a72%22%20stroke-opacity%3D%220.55%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22/%3E%3Ctext%20x%3D%22400%22%20y%3D%22300%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2230%22%20fill%3D%22%23c07a72%22%20text-anchor%3D%22middle%22%3ELanzhou%20University%3C/text%3E%3Ctext%20x%3D%22400%22%20y%3D%22338%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2218%22%20fill%3D%22%23b79a93%22%20text-anchor%3D%22middle%22%3EReplace%20with%20your%20photo%3C/text%3E%3C/svg%3E" alt="Lanzhou University">
+            <div class="tl-body">
+              <div class="tl-date">2012 &ndash; 2016</div>
+              <h2>Lanzhou University</h2>
+              <div class="tl-meta">B.Sc., Mathematics &amp; Applied Mathematics &middot; Lanzhou, China</div>
+              <span class="badge">Double First-Class University</span>
+              <p>Built a rigorous foundation in pure and applied mathematics at one of China's
+                 national Double First-Class universities &mdash; recognised with national
+                 scholarships, top prizes in the American Mathematical Modeling Contest, and an
+                 Outstanding Graduation Thesis.</p>
+            </div>
           </div>
         </div>
 
-        <!-- ===================== ROLE 2 ===================== -->
-        <div class="card">
-
-          <!-- ▼ ADD A PICTURE (optional) ▼ -->
-          <img src="https://picsum.photos/seed/exp2/800/500" alt="Role 2">
-
-          <div class="card-body">
-            <!-- ▼ TYPE YOUR JOB TITLE HERE ▼ -->
-            <h3>Job title</h3>
-            <p class="role-meta">Company name · 2021 – 2023</p>
-            <p>Describe your responsibilities and achievements in this role here.</p>
+        <!-- ===== 2) Country Garden ===== -->
+        <div class="tl-item right">
+          <div class="tl-node"></div>
+          <div class="tl-card">
+            <!-- PHOTO: replace src with images/countrygarden.jpg once you upload your photo -->
+            <img class="tl-img" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20440%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220.5%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fbf3f0%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23efe0db%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22800%22%20height%3D%22440%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%22330%22%20y%3D%22120%22%20width%3D%22140%22%20height%3D%22104%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23c07a72%22%20stroke-opacity%3D%220.55%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22362%22%20cy%3D%22150%22%20r%3D%229%22%20fill%3D%22%23c07a72%22%20fill-opacity%3D%220.55%22/%3E%3Cpath%20d%3D%22M%20340%20218%20L%20378%20176%20L%20402%20200%20L%20432%20162%20L%20460%20218%20Z%22%20fill%3D%22%23c07a72%22%20fill-opacity%3D%220.18%22%20stroke%3D%22%23c07a72%22%20stroke-opacity%3D%220.55%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22/%3E%3Ctext%20x%3D%22400%22%20y%3D%22300%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2230%22%20fill%3D%22%23c07a72%22%20text-anchor%3D%22middle%22%3ECountry%20Garden%20%26%23183%3B%20project%3C/text%3E%3Ctext%20x%3D%22400%22%20y%3D%22338%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2218%22%20fill%3D%22%23b79a93%22%20text-anchor%3D%22middle%22%3EReplace%20with%20your%20photo%3C/text%3E%3C/svg%3E" alt="Country Garden project">
+            <div class="tl-body">
+              <div class="tl-date">2016 &ndash; 2023</div>
+              <h2>Country Garden</h2>
+              <div class="tl-meta">Trainee &rarr; Senior Specialist &rarr; Senior Executive &rarr; Deputy Manager &middot; Shaanxi, China</div>
+              <span class="badge">Fortune Global 500</span>
+              <p>Progressed through four roles over seven years at a Fortune Global 500 company,
+                 leading data management for sales and payments exceeding several billion. Built
+                 multi-tiered intelligent sales systems, coordinated banking and government
+                 interfaces, and delivered financial forecasting across six districts.</p>
+            </div>
           </div>
         </div>
 
-        <!-- To add MORE roles, copy one whole <div class="card"> ... </div> block.
-             To remove one, delete a whole block. -->
+        <!-- ===== 3) Entrepreneurship ===== -->
+        <div class="tl-item left">
+          <div class="tl-node"></div>
+          <div class="tl-card">
+            <!-- PHOTO: replace src with images/creator.jpg once you upload your photo -->
+            <img class="tl-img" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20440%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220.5%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fbf3f0%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23efe0db%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22800%22%20height%3D%22440%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%22330%22%20y%3D%22120%22%20width%3D%22140%22%20height%3D%22104%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23c07a72%22%20stroke-opacity%3D%220.55%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22362%22%20cy%3D%22150%22%20r%3D%229%22%20fill%3D%22%23c07a72%22%20fill-opacity%3D%220.55%22/%3E%3Cpath%20d%3D%22M%20340%20218%20L%20378%20176%20L%20402%20200%20L%20432%20162%20L%20460%20218%20Z%22%20fill%3D%22%23c07a72%22%20fill-opacity%3D%220.18%22%20stroke%3D%22%23c07a72%22%20stroke-opacity%3D%220.55%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22/%3E%3Ctext%20x%3D%22400%22%20y%3D%22300%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2230%22%20fill%3D%22%23c07a72%22%20text-anchor%3D%22middle%22%3EContent%20creation%3C/text%3E%3Ctext%20x%3D%22400%22%20y%3D%22338%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2218%22%20fill%3D%22%23b79a93%22%20text-anchor%3D%22middle%22%3EReplace%20with%20your%20photo%3C/text%3E%3C/svg%3E" alt="Content creation">
+            <div class="tl-body">
+              <div class="tl-date">2024 &ndash; Present</div>
+              <h2>Independent Content Creator</h2>
+              <div class="tl-meta">Multi-domain content &middot; mathematics, technology &amp; education</div>
+              <span class="badge">Founder &middot; NodeClub</span>
+              <p>Founded an independent content brand, handling the full pipeline end-to-end &mdash;
+                 topic research, scriptwriting, filming, and post-production in Premiere Pro, After
+                 Effects, and Photoshop &mdash; alongside global data collection and analysis in Python.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 4) Massey University ===== -->
+        <div class="tl-item right">
+          <div class="tl-node"></div>
+          <div class="tl-card">
+            <!-- PHOTO: replace src with images/massey.jpg once you upload your photo -->
+            <img class="tl-img" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20440%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220.5%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23fbf3f0%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23efe0db%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22800%22%20height%3D%22440%22%20fill%3D%22url%28%23g%29%22/%3E%3Crect%20x%3D%22330%22%20y%3D%22120%22%20width%3D%22140%22%20height%3D%22104%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23c07a72%22%20stroke-opacity%3D%220.55%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22362%22%20cy%3D%22150%22%20r%3D%229%22%20fill%3D%22%23c07a72%22%20fill-opacity%3D%220.55%22/%3E%3Cpath%20d%3D%22M%20340%20218%20L%20378%20176%20L%20402%20200%20L%20432%20162%20L%20460%20218%20Z%22%20fill%3D%22%23c07a72%22%20fill-opacity%3D%220.18%22%20stroke%3D%22%23c07a72%22%20stroke-opacity%3D%220.55%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22/%3E%3Ctext%20x%3D%22400%22%20y%3D%22300%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2230%22%20fill%3D%22%23c07a72%22%20text-anchor%3D%22middle%22%3EMassey%20University%3C/text%3E%3Ctext%20x%3D%22400%22%20y%3D%22338%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2218%22%20fill%3D%22%23b79a93%22%20text-anchor%3D%22middle%22%3EReplace%20with%20your%20photo%3C/text%3E%3C/svg%3E" alt="Massey University">
+            <div class="tl-body">
+              <div class="tl-date">Present</div>
+              <h2>Massey University</h2>
+              <div class="tl-meta">Master of Analytics &middot; Auckland, New Zealand</div>
+              <span class="badge">Currently studying</span>
+              <p>Now pursuing a Master of Analytics, deepening expertise in statistics, data mining,
+                 econometrics, and machine learning using SAS, R, and Python.</p>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -140,8 +186,8 @@
   <!-- ============================ FOOTER ============================ -->
   <footer>
     <div class="footer-inner">
-      <span>© 2026 Linxin</span>
-      <span>Built and hosted on GitHub Pages</span>
+      <span>&copy; 2026 Linxin</span>
+      <span>Independently developed and hosted on GitHub Pages</span>
     </div>
   </footer>
 
