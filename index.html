@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     :root{ --ink:#1a1340; --ink2:#0d0926; --clay:#8b6fe0; --clay-dark:#6d4fc9; --cyan:#5fb4e6;
       --bg:#f3f1fa; --card:#fff; --text:#43425a; --muted:#6c6a86; --line:#e4e1ef; }
@@ -80,6 +81,36 @@
       .grid{ grid-template-columns:1fr; gap:40px; } .contact{ grid-template-columns:1fr; }
       .contact-img{ min-height:280px; } .contact-info{ padding:48px 28px; }
     }
+
+    /* ===== personal motto (added, non-destructive) ===== */
+    .hero-motto{ position:absolute; top:50%; right:0; transform:translateY(-50%);
+      width:min(500px,46%); text-align:right; z-index:3; }
+    .motto-constellation{ width:128px; height:auto; margin:0 0 16px auto; display:block; }
+    .motto-big{ font-family:'Cormorant Garamond',Georgia,serif; font-style:italic;
+      font-weight:500; font-size:42px; line-height:1.18; color:#fff; margin:0; }
+    .motto-big + .motto-big{ margin-top:4px; }
+    .motto-big .script{ font-family:'Great Vibes',cursive; font-style:normal; font-size:1.5em;
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+    .accent-warm{ background:linear-gradient(92deg,#f8c4d2,#ec8ba6); }
+    .accent-cool{ background:linear-gradient(92deg,#b6a2f2,#5fb4e6); }
+    .motto-sub{ font-family:'Lora',Georgia,serif; font-style:italic; font-size:20px;
+      color:#cfc8ea; margin:22px 0 0; line-height:1.4; }
+    .motto-sub .name{ font-family:'Great Vibes',cursive; font-style:normal; font-size:1.6em;
+      color:#f0a8bd; vertical-align:-2px; }
+    .motto-fine{ font-family:'Lora',Georgia,serif; font-style:italic; font-size:16px;
+      color:#9b93c2; margin:6px 0 0; line-height:1.45; }
+    .motto-sign{ display:flex; align-items:center; justify-content:flex-end; gap:12px; margin-top:20px; }
+    .motto-sign .line{ width:46px; height:1px; background:linear-gradient(90deg,transparent,#8b6fe0); }
+    .motto-sign .txt{ font-family:'Lora',Georgia,serif; font-size:11px; letter-spacing:2.5px;
+      text-transform:uppercase; color:#8b83b4; }
+    @media (max-width:980px){
+      .hero-motto{ position:static; transform:none; width:auto; text-align:left; margin-top:44px; }
+      .motto-constellation{ margin:0 0 14px 0; }
+      .motto-sign{ justify-content:flex-start; }
+    }
+    @media (max-width:860px){
+      .motto-big{ font-size:32px; } .motto-sub{ font-size:18px; } .motto-fine{ font-size:15px; }
+    }
   </style>
 </head>
 <body>
@@ -108,6 +139,24 @@
         intelligence. If you are interested in my work or would like to connect,
         please feel free to get in touch.</p>
       <a href="projects.html" class="btn">View my projects</a>
+      <div class="hero-motto" aria-label="Personal motto">
+        <svg class="motto-constellation" viewBox="0 0 150 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="12" y1="40" x2="46" y2="18" stroke="#5fb4e6" stroke-opacity=".4" stroke-width="1"/>
+          <line x1="46" y1="18" x2="84" y2="34" stroke="#5fb4e6" stroke-opacity=".4" stroke-width="1"/>
+          <line x1="84" y1="34" x2="114" y2="14" stroke="#5fb4e6" stroke-opacity=".4" stroke-width="1"/>
+          <line x1="84" y1="34" x2="138" y2="48" stroke="#5fb4e6" stroke-opacity=".4" stroke-width="1"/>
+          <circle cx="12" cy="40" r="6" fill="#5fb4e6" fill-opacity=".16"/><circle cx="12" cy="40" r="2.4" fill="#5fb4e6"/>
+          <circle cx="46" cy="18" r="6" fill="#b6a2f2" fill-opacity=".16"/><circle cx="46" cy="18" r="2.8" fill="#b6a2f2"/>
+          <circle cx="84" cy="34" r="6" fill="#ffffff" fill-opacity=".16"/><circle cx="84" cy="34" r="2.4" fill="#ffffff"/>
+          <circle cx="114" cy="14" r="5" fill="#5fb4e6" fill-opacity=".16"/><circle cx="114" cy="14" r="2" fill="#5fb4e6"/>
+          <circle cx="138" cy="48" r="6" fill="#f0a8bd" fill-opacity=".16"/><circle cx="138" cy="48" r="3" fill="#f0a8bd"/>
+        </svg>
+        <p class="motto-big">Do what you <span class="script accent-warm">want.</span></p>
+        <p class="motto-big">Learn what you <span class="script accent-cool">like.</span></p>
+        <p class="motto-sub">Come on, <span class="name">Lychee</span>.</p>
+        <p class="motto-fine">You are the most excellent girl in the world.</p>
+        <div class="motto-sign"><span class="line"></span><span class="txt">My motto</span></div>
+      </div>
     </div>
   </section>
 
