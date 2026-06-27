@@ -111,6 +111,119 @@
     @media (max-width:860px){
       .motto-big{ font-size:32px; } .motto-sub{ font-size:18px; } .motto-fine{ font-size:15px; }
     }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linxin Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root{ --ink:#1a1340; --ink2:#0d0926; --clay:#8b6fe0; --clay-dark:#6d4fc9; --cyan:#5fb4e6;
+      --bg:#f3f1fa; --card:#fff; --text:#43425a; --muted:#6c6a86; --line:#e4e1ef; }
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    body{ font-family:'Lora',Georgia,'Times New Roman',serif; color:var(--text); background:var(--bg); line-height:1.65; }
+    img{ display:block; max-width:100%; } a{ color:inherit; text-decoration:none; } svg{ display:block; }
+    .wrap{ max-width:1200px; margin:0 auto; padding:0 24px; }
+
+    /* ---- hero animation (only animated part of the page) ---- */
+    @keyframes hspin{ to{ transform:rotate(360deg); } }
+    @keyframes hbob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(13px); } }
+    @keyframes htw{ 0%,100%{ opacity:var(--o,0.8); } 50%{ opacity:0.16; } }
+    .hspin{ transform-box:fill-box; transform-origin:center; animation:hspin 120s linear infinite; will-change:transform; }
+    .hbob{ animation:hbob 9s ease-in-out infinite; will-change:transform; }
+    .htw{ animation:htw 4s ease-in-out infinite; }
+    @media (prefers-reduced-motion:reduce){ .hspin,.hbob,.htw{ animation:none; } }
+
+    header{ background:var(--ink); position:sticky; top:0; z-index:50; }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1200px; margin:0 auto; }
+    .brand{ display:flex; align-items:center; gap:14px; }
+    .brand .logo{ width:54px; height:54px; border-radius:50%; overflow:hidden; }
+    .brand .logo svg{ width:100%; height:100%; }
+    .brand .name{ color:var(--clay); font-size:28px; letter-spacing:.5px; }
+    .menu{ display:flex; gap:30px; list-style:none; flex-wrap:wrap; }
+    .menu a{ color:#cfcbe6; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; padding-bottom:6px; border-bottom:2px solid transparent; transition:.2s; }
+    .menu a:hover{ color:#fff; } .menu a.active{ color:#fff; border-bottom-color:var(--clay); }
+    .burger{ display:none; background:none; border:0; color:#fff; font-size:26px; cursor:pointer; }
+
+    .hero{ position:relative; overflow:hidden; color:#fff; }
+    .hero-bg{ position:absolute; inset:0; z-index:0; } .hero-bg svg{ width:100%; height:100%; }
+    .hero-overlay{ position:absolute; inset:0; z-index:1; background:linear-gradient(rgba(20,14,52,.45),rgba(13,9,38,.55)); }
+    .hero-inner{ position:relative; z-index:2; max-width:1200px; margin:0 auto; padding:120px 24px 130px; }
+    .hero h1{ font-size:52px; font-weight:500; line-height:1.15; max-width:780px; margin-bottom:26px; }
+    .hero p{ font-size:18px; max-width:680px; margin-bottom:34px; color:#e7e4f5; }
+    .btn{ display:inline-block; background:var(--clay); color:#fff; padding:13px 26px; font-size:15px; border-radius:4px; transition:.2s; box-shadow:0 6px 20px rgba(139,111,224,.35); }
+    .btn:hover{ background:var(--clay-dark); }
+
+    section{ padding:72px 0; }
+    .section-title{ color:var(--clay); font-size:34px; font-weight:500; margin-bottom:14px; }
+    .section-sub{ color:var(--muted); font-size:18px; max-width:820px; margin-bottom:48px; }
+    .grid{ display:grid; grid-template-columns:1fr 1fr; gap:46px; }
+    .card-art{ width:100%; height:300px; border-radius:4px; margin-bottom:22px; overflow:hidden; }
+    .card-art svg{ width:100%; height:100%; }
+    .card h3{ color:var(--clay); font-size:26px; font-weight:500; margin-bottom:14px; }
+    .card p{ color:var(--text); margin-bottom:22px; }
+
+    .quote-band{ background:#ece9f6; }
+    .quote-band blockquote{ font-size:20px; font-style:italic; color:#3c3a52; max-width:1000px; }
+    .quote-band cite{ display:block; margin-top:14px; font-style:normal; color:var(--muted); }
+
+    .contact{ display:grid; grid-template-columns:1fr 1fr; align-items:stretch; }
+    .contact-img{ position:relative; min-height:520px; overflow:hidden; }
+    .contact-img svg{ position:absolute; inset:0; width:100%; height:100%; }
+    .contact-info{ padding:64px 56px; }
+    .contact-info h2{ color:var(--clay); font-size:38px; font-weight:500; margin-bottom:26px; }
+    .contact-info h4{ color:var(--clay); font-size:22px; font-weight:500; margin:30px 0 8px; }
+    .contact-info p, .contact-info a.link{ color:var(--text); } .contact-info a.link{ text-decoration:underline; }
+    .divider{ height:1px; background:var(--line); margin:22px 0 0; }
+    .socials{ display:flex; gap:14px; margin-top:18px; }
+    .socials a{ width:42px; height:42px; border-radius:50%; background:var(--clay); display:flex; align-items:center; justify-content:center; transition:.2s; }
+    .socials a:hover{ background:var(--clay-dark); } .socials svg{ width:20px; height:20px; fill:#fff; }
+
+    footer{ background:var(--ink); color:#c5c2dc; }
+    .footer-inner{ max-width:1200px; margin:0 auto; padding:26px 24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:14px; }
+
+    @media (max-width:860px){
+      .menu{ display:none; position:absolute; top:100%; left:0; right:0; background:var(--ink); flex-direction:column; gap:0; padding:8px 0; }
+      .menu.open{ display:flex; } .menu a{ padding:14px 24px; border-bottom:none; }
+      .burger{ display:block; } .nav{ position:relative; }
+      .hero h1{ font-size:36px; } .hero-inner{ padding:80px 24px; }
+      .grid{ grid-template-columns:1fr; gap:40px; } .contact{ grid-template-columns:1fr; }
+      .contact-img{ min-height:280px; } .contact-info{ padding:48px 28px; }
+    }
+
+    /* ===== personal motto (added, non-destructive) ===== */
+    .hero-motto{ position:absolute; top:50%; right:0; transform:translateY(-50%);
+      width:min(500px,46%); text-align:right; z-index:3; }
+    .motto-constellation{ width:128px; height:auto; margin:0 0 16px auto; display:block; }
+    .motto-big{ font-family:'Cormorant Garamond',Georgia,serif; font-style:italic;
+      font-weight:500; font-size:42px; line-height:1.18; color:#fff; margin:0; }
+    .motto-big + .motto-big{ margin-top:4px; }
+    .motto-big .script{ font-family:'Great Vibes',cursive; font-style:normal; font-size:1.5em;
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+    .accent-warm{ background:linear-gradient(92deg,#f8c4d2,#ec8ba6); }
+    .accent-cool{ background:linear-gradient(92deg,#b6a2f2,#5fb4e6); }
+    .motto-sub{ font-family:'Lora',Georgia,serif; font-style:italic; font-size:20px;
+      color:#cfc8ea; margin:22px 0 0; line-height:1.4; }
+    .motto-sub .name{ font-family:'Great Vibes',cursive; font-style:normal; font-size:1.6em;
+      color:#f0a8bd; vertical-align:-2px; }
+    .motto-fine{ font-family:'Lora',Georgia,serif; font-style:italic; font-size:16px;
+      color:#9b93c2; margin:6px 0 0; line-height:1.45; }
+    .motto-sign{ display:flex; align-items:center; justify-content:flex-end; gap:12px; margin-top:20px; }
+    .motto-sign .line{ width:46px; height:1px; background:linear-gradient(90deg,transparent,#8b6fe0); }
+    .motto-sign .txt{ font-family:'Lora',Georgia,serif; font-size:11px; letter-spacing:2.5px;
+      text-transform:uppercase; color:#8b83b4; }
+    @media (max-width:980px){
+      .hero-motto{ position:static; transform:none; width:auto; text-align:left; margin-top:44px; }
+      .motto-constellation{ margin:0 0 14px 0; }
+      .motto-sign{ justify-content:flex-start; }
+    }
+    @media (max-width:860px){
+      .motto-big{ font-size:32px; } .motto-sub{ font-size:18px; } .motto-fine{ font-size:15px; }
+    }
   </style>
 </head>
 <body>
