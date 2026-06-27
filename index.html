@@ -111,6 +111,24 @@
     @media (max-width:860px){
       .motto-big{ font-size:32px; } .motto-sub{ font-size:18px; } .motto-fine{ font-size:15px; }
     }
+
+   /* ===== illustration animations (added) ===== */
+    @keyframes artFlow{ to{ stroke-dashoffset:-64; } }
+    @keyframes artScan{ to{ stroke-dashoffset:-96; } }
+    @keyframes artTwinkle{ 0%,100%{ opacity:1; } 50%{ opacity:.1; } }
+    @keyframes artNode{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.45); } }
+    @keyframes artHalo{ 0%,100%{ transform:scale(.7); opacity:.6; } 50%{ transform:scale(1.55); opacity:.08; } }
+    @keyframes artFill{ 0%,100%{ fill-opacity:.35; } 50%{ fill-opacity:1; } }
+    @keyframes artMoon{ 0%,100%{ fill-opacity:.06; } 50%{ fill-opacity:.42; } }
+    @keyframes artSpin{ to{ transform:rotate(360deg); } }
+    @keyframes artBreathe{ 0%,100%{ opacity:.08; transform:scaleY(.92); } 50%{ opacity:.4; transform:scaleY(1.06); } }
+    @keyframes artLineGlow{ 0%,100%{ opacity:.22; } 50%{ opacity:1; } }
+    @keyframes artClimb{ 0%{ offset-distance:0%; opacity:0; } 10%{ opacity:1; } 90%{ opacity:1; } 100%{ offset-distance:100%; opacity:0; } }
+    @keyframes artPop{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.6); } }
+ 
+    .art circle,.art ellipse,.art polygon{ transform-box:fill-box; transform-origin:center; }
+    .art rect{ transform-box:fill-box; transform-origin:bottom; }
+    
   /* My projects — neural network */
     .art-neural line[stroke-opacity='0.16']{ stroke-dasharray:5 9; animation:artFlow 1.1s linear infinite; }
     .art-neural line[stroke-opacity='0.22']{ stroke-dasharray:5 9; animation:artFlow 0.8s linear infinite; }
