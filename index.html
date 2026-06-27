@@ -111,6 +111,74 @@
     @media (max-width:860px){
       .motto-big{ font-size:32px; } .motto-sub{ font-size:18px; } .motto-fine{ font-size:15px; }
     }
+  /* My projects — neural network */
+    .art-neural line[stroke-opacity='0.16']{ stroke-dasharray:5 9; animation:artFlow 1.1s linear infinite; }
+    .art-neural line[stroke-opacity='0.22']{ stroke-dasharray:5 9; animation:artFlow 0.8s linear infinite; }
+    .art-neural circle[r='8']{ animation:artNode 1.7s ease-in-out infinite; }
+    .art-neural circle[r='9']{ animation:artNode 1.3s ease-in-out infinite; }
+    .art-neural circle[r='16.8'],.art-neural circle[r='18.9']{ animation:artHalo 2.1s ease-in-out infinite; }
+    .art-neural circle[cy='250.0']{ animation-delay:-.9s; }
+    .art-neural circle[cy='320.0']{ animation-delay:-1.7s; }
+    .art-neural ellipse[fill-opacity='0.5']{ animation:artFill 2.4s ease-in-out infinite; }
+    .art-neural circle[r='2.5'],.art-neural circle[r='2.2']{ animation:artTwinkle 1.8s ease-in-out infinite; }
+ 
+    /* Professional experience — growth chart */
+    .art-growth polyline[stroke-opacity='0.7']{ stroke-dasharray:9 11; animation:artFlow 1.0s linear infinite; }
+    .art-growth circle[r='6.5']{ animation:artNode 1.5s ease-in-out infinite; }
+    .art-growth circle[cx='208']{ animation-delay:-.3s; }
+    .art-growth circle[cx='306']{ animation-delay:-.6s; }
+    .art-growth circle[cx='404']{ animation-delay:-.9s; }
+    .art-growth circle[cx='502']{ animation-delay:-1.2s; }
+    .art-growth circle[cx='600']{ animation-delay:-1.5s; }
+    .art-growth circle[r='10']{ animation:artPop 1.5s ease-in-out infinite; }
+    .art-growth circle[r='24.0']{ animation:artHalo 1.9s ease-in-out infinite; }
+    .art-growth rect[fill-opacity='0.10']{ animation:artBreathe 2.4s ease-in-out infinite; }
+    .art-growth rect[x='195']{ animation-delay:-.4s; }
+    .art-growth rect[x='293']{ animation-delay:-.8s; }
+    .art-growth rect[x='391']{ animation-delay:-1.2s; }
+    .art-growth rect[x='489']{ animation-delay:-1.6s; }
+    .art-growth rect[x='587']{ animation-delay:-2s; }
+    .art-growth rect[x='687']{ animation-delay:-2.4s; }
+    .art-growth circle[r='2.9'],.art-growth circle[r='2.7']{ animation:artTwinkle 2.0s ease-in-out infinite; }
+    .art-growth .art-climb,.art-growth .art-climb-glow{ offset-path:path('M110 360 L208 332 L306 300 L404 268 L502 250 L600 198 L700 150'); animation:artClimb 2.8s ease-in-out infinite; }
+    .art-growth .art-climb-glow{ opacity:.5; }
+    .art-growth .art-climb,.art-growth .art-climb-glow{ animation-delay:-1.4s; }
+ 
+    /* Honours & achievements — medal */
+    .art-medal polygon[fill-opacity='0.95']{ animation:artNode 1.6s ease-in-out infinite; }
+    .art-medal circle[r='54']{ animation:artLineGlow 2.2s ease-in-out infinite; }
+    .art-medal circle[r='62']{ animation:artHalo 2.6s ease-in-out infinite; }
+    .art-medal circle[r='4']{ animation:artTwinkle 1.5s ease-in-out infinite; }
+    .art-medal circle[r='10.4']{ animation:artHalo 1.8s ease-in-out infinite; }
+    .art-medal circle[r='2.9'],.art-medal circle[r='3.0']{ animation:artTwinkle 1.9s ease-in-out infinite; }
+    .art-medal .seal-spin{ animation:artSpin 12s linear infinite; }
+    .art-medal .seal-spin2{ animation:artSpin 18s linear infinite reverse; }
+ 
+    /* Hobby — telescope & constellation */
+    .art-hobby circle[r='5']{ animation:artTwinkle 1.6s ease-in-out infinite; }
+    .art-hobby circle[cx='742']{ animation-delay:-.4s; }
+    .art-hobby circle[cx='610']{ animation-delay:-.8s; }
+    .art-hobby circle[cx='560']{ animation-delay:-1.2s; }
+    .art-hobby circle[r='8']{ animation:artPop 1.7s ease-in-out infinite; }
+    .art-hobby path[fill-opacity='0.08']{ animation:artMoon 2.8s ease-in-out infinite; }
+    .art-hobby line[stroke-dasharray='5 7']{ animation:artScan 1.3s linear infinite; }
+    .art-hobby circle[r='2.3'],.art-hobby circle[r='2.9']{ animation:artTwinkle 2.0s ease-in-out infinite; }
+ 
+    /* Connect — paraboloid & constellation */
+    .art-contact line[stroke-opacity='0.3']{ animation:artLineGlow 2.4s ease-in-out infinite; }
+    .art-contact circle[r='5.5']{ animation:artPop 1.8s ease-in-out infinite; }
+    .art-contact circle[cx='468.6']{ animation-delay:-.3s; }
+    .art-contact circle[cx='346.6']{ animation-delay:-.6s; }
+    .art-contact circle[cx='391.3']{ animation-delay:-.9s; }
+    .art-contact circle[cx='350.8']{ animation-delay:-1.2s; }
+    .art-contact circle[cx='597.8']{ animation-delay:-1.5s; }
+    .art-contact circle[cx='537.1']{ animation-delay:-1.8s; }
+    .art-contact circle[cx='478.0']{ animation-delay:-2.1s; }
+    .art-contact circle[r='2.6'],.art-contact circle[r='2.2'],.art-contact circle[r='2.5'],.art-contact circle[r='2.4'],.art-contact circle[r='2.3']{ animation:artTwinkle 2.1s ease-in-out infinite; }
+ 
+    @media (prefers-reduced-motion:reduce){
+      .art line,.art polyline,.art circle,.art polygon,.art ellipse,.art path,.art rect{ animation:none !important; }
+    }    
   </style>
 </head>
 <body>
